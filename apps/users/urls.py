@@ -5,5 +5,5 @@ app_name = 'users'
 
 
 urlpatterns = [
-    path('profile/', views.index),
+    path('login/', views.LoginPage.as_view(), name='login_page'),
 ]
