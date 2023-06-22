@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+  <body>
+    {% block content %}
+    <main class="main" id="top">
+      <div class="container" data-layout="container">
+        <div class="content">
+          <div class="row">
+            <div class="col-12">
+              <div class="card mb-3 btn-reveal-trigger">
+                <div class="card-header position-relative min-vh-25 mb-8">
+                  <div class="avatar avatar-5xl avatar-profile shadow-sm img-thumbnail rounded-circle">
+                    <div class="h-100 w-100 rounded-circle overflow-hidden position-relative"> <img src="{% static 'img/team/2.jpg' %}" width="200" alt="" data-dz-thumbnail>
+                      <input class="d-none" id="profile-image" type="file">
+                      <label class="mb-0 overlay-icon d-flex flex-center" for="profile-image"><span class="bg-holder overlay overlay-0"></span><span class="z-index-1 text-white text-center fs--1"><span class="fas fa-camera"></span><span class="d-block">Обновить</span></span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row no-gutters">
+            <div class="col-lg-8 pr-lg-2">
+              <div class="card mb-3">
+                <div class="card-header">
+                  <h5 class="mb-0">Информация</h5>
+                </div>
+                <div class="card-body bg-light">
+                  <form>
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="first-name">Название</label>
+                          <input class="form-control" id="first-name" type="text" value="Anthony">
+                        </div>
+                      </div>
+                      {% comment %} <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="last-name">Фамилия</label>
+                          <input class="form-control" id="last-name" type="text" value="Hopkins">
+                        </div>
+                      </div> {% endcomment %}
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="phone">Телефон</label>
+                          <input class="form-control" id="phone" type="text" value="+44098098304">
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <div class="form-group">
+                          <label for="intro">Описание</label>
+                          <textarea class="form-control" id="intro" name="intro" cols="30" rows="13">Тут будет описание</textarea>
+                        </div>
+                      </div>
+                      <div class="col-12 d-flex justify-content-end">
+                        <button class="btn btn-primary" type="submit">Update </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 pl-lg-2">
+              <div class="sticky-top sticky-sidebar">
+                <div class="card">
+                  <div class="card-body bg-light">
+                    <h5 class="fs-0">Удалить аккаунт заведения</h5>
+                    <p class="fs--1">Вы можете удалить аккаунт заведения просто нажав на эту кнопку.</p><a class="btn btn-falcon-danger d-block" href="#!">Удалить аккаунт</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    {% endblock %}
+        
+  </body>

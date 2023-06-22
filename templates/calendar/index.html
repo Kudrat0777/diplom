@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+  <body>
+    {% block content %}
+    <main class="main" id="top">
+      <div class="container" data-layout="container">
+        <div class="content">
+          <div class="card mb-3">
+            <div class="card-header">
+              <div class="row no-gutters align-items-center">
+                <div class="col-auto d-flex justify-content-end order-md-1">
+                  <button class="btn icon-item icon-item-sm icon-item-hover shadow-none p-0 mr-1 ml-md-2" type="button" data-event="prev" data-toggle="tooltip" title="Previous"><span class="fas fa-arrow-left"></span></button>
+                  <button class="btn icon-item icon-item-sm icon-item-hover shadow-none p-0 mr-1" type="button" data-event="next" data-toggle="tooltip" title="Next"><span class="fas fa-arrow-right"></span></button>
+                </div>
+                <div class="col-auto col-md-auto order-md-2">
+                  <h4 class="mb-0 fs-0 fs-sm-1 fs-lg-2 calendar-title"></h4>
+                </div>
+                <div class="col-md-auto d-md-none">
+                  <hr />
+                </div>
+                <div class="col-auto d-flex order-md-0">
+                  <button class="btn btn-primary btn-sm" type="button" data-toggle="modal" data-target="#addEvent"> <span class="fas fa-plus mr-2"></span>Add Schedule</button>
+                </div>
+                <div class="col d-flex justify-content-end order-md-2">
+                  <div class="dropdown text-sans-serif mr-md-2">
+                    <button class="btn btn-falcon-default text-600 btn-sm dropdown-toggle dropdown-caret-none" type="button" id="email-filter" data-toggle="dropdown" data-boundary="viewport" aria-haspopup="true" aria-expanded="false"><span data-view-title="data-view-title">Месяц</span><span class="fas fa-sort ml-2 fs--1"></span></button>
+                    <div class="dropdown-menu dropdown-menu-right border py-2" aria-labelledby="email-filter">
+                      <a class="active dropdown-item d-flex justify-content-between" href="#!" data-fc-view="dayGridMonth">Месяц
+                        <span>
+                          <span class="fas fa-check" data-fa-transform="down-4 shrink-4"></span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item d-flex justify-content-between" href="#!" data-fc-view="timeGridWeek">Неделя
+                        <span>
+                          <span class="fas fa-check" data-fa-transform="down-4 shrink-4"></span>
+                        </span>
+                      </a>
+                      <a class="dropdown-item d-flex justify-content-between" href="#!" data-fc-view="timeGridDay">День
+                        <span>
+                          <span class="fas fa-check" data-fa-transform="down-4 shrink-4"></span>
+                        </span>
+                      </a>
+                  <a class="dropdown-item d-flex justify-content-between" href="#!" data-fc-view="listYear">Год<span><span class="fas fa-check" data-fa-transform="down-4 shrink-4"></span></span></a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body p-0">
+              <div id="appCalendar"></div>
+            </div>
+          </div>
+          
+        </div>
+        <div class="modal theme-modal fade" id="addEvent">
+          <div class="modal-dialog">
+            <div class="modal-content border">
+              <form class="form-validation" id="addEventForm" autocomplete="off">
+                <div class="modal-header bg-light d-flex flex-between-center border-bottom-0">
+                  <h5 class="mb-0">Создание записи</h5>
+                  <button class="close fs-0 px-card" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+                </div>
+                <div class="modal-body p-card">
+                  <div class="form-group">
+                    <label class="fs-0" for="eventTitle">Название</label>
+                    <input class="form-control" id="eventTitle" type="text" name="title" required="required" />
+                  </div>
+                  <div class="form-group">
+                    <label class="fs-0" for="eventStartDate">Начало</label>
+                    <input class="form-control datetimepicker" id="eventStartDate" type="text" required="required" name="startDate" placeholder="y-m-d h:m" data-options='{"static":"true","enableTime":"true","dateFormat":"Y-m-d H:i"}' />
+                  </div>
+                  <div class="form-group">
+                    <label class="fs-0" for="eventEndDate">Конец</label>
+                    <input class="form-control datetimepicker" id="eventEndDate" type="text" name="endDate" placeholder="y-m-d h:m" data-options='{"static":"true","enableTime":"true","dateFormat":"Y-m-d H:i"}' />
+                  </div>
+                  <div class="custom-control custom-checkbox mb-3">
+                    <input class="custom-control-input" id="eventAllDay" type="checkbox" name="allDay" />
+                    <label class="custom-control-label" for="eventAllDay">Весь день</label>
+                  </div>
+                  <div class="form-group">
+                    <label class="fs-0" for="eventDescription">Описание</label>
+                    <textarea class="form-control" rows="3" name="description" id="eventDescription"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label class="fs-0" for="eventLabel">Для</label>
+                    <select class="custom-select" id="eventLabel" name="label">
+                      <option value="" selected="selected">Нет</option>
+                      <option value="primary">Бизнес</option>
+                      <option value="danger">Встреча</option>
+                      <option value="success">Клиент</option>
+                      <option value="warning">Персонал</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="card-footer d-flex justify-content-end align-items-center bg-light"><a class="mr-3 text-600" href="pages/event-create.html">More options</a>
+                  <button class="btn btn-primary btn-lg px-4" type="submit">Сохранить</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal theme-modal fade" id="eventDetails">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    {% endblock %}
+  </body>
